@@ -6,9 +6,9 @@ on:
       - main
 
 env:
-  TF_CLOUD_ORGANIZATION: "YOUR-ORGANIZATION-HERE"
-  TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
-  TF_WORKSPACE: "learn-terraform-github-actions"
+  TF_CLOUD_ORGANIZATION: "linvest21-Terraform-Automation"
+  TF_API_TOKEN: "${{ secrets.TF_DIFFENV_TOKEN }}"
+  TF_WORKSPACE: "terraform-production"
   CONFIG_DIRECTORY: "./"
 
 jobs:
