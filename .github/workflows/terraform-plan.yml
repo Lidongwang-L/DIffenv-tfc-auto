@@ -5,7 +5,7 @@ on:
 
 env:
   TF_CLOUD_ORGANIZATION: "linvest21-Terraform-Automation"
-  TF_API_TOKEN: "${{ secrets.TF_DIFFENV_TOKEN }}"
+  TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
   TF_WORKSPACE: "terraform-pro"
   CONFIG_DIRECTORY: "./"
 
