@@ -51,9 +51,7 @@ resource "aws_instance" "web" {
               systemctl restart apache2
               EOF
 }
-tags = {
-  Name = "Production Env"
-}
+
 
 resource "aws_security_group" "web-sg" {
   name = "${random_pet.sg.id}-sg"
@@ -62,6 +60,9 @@ resource "aws_security_group" "web-sg" {
     to_port     = 8080
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+  tags = {
+    Name = "Production Env"
   }
   // connectivity to ubuntu mirrors is required to run `apt-get update` and `apt-get install apache2`
   egress {
