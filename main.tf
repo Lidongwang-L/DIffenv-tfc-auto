@@ -62,7 +62,12 @@ resource "aws_security_group" "web-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "Production Env"
+    Name               = "Production Env"
+    Administrator      = "Andy Welsh"
+    Department         = "IT"
+    CostCentre         = "ABC123"
+    ContactPerson      = "andy@tinfoilcipher.co.uk"
+    ManagedByTerraform = "True"
   }
   // connectivity to ubuntu mirrors is required to run `apt-get update` and `apt-get install apache2`
   egress {
