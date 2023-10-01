@@ -17,11 +17,11 @@ terraform {
 
 provider "aws" {
   region = "us-west-2"
-  default_tags {
-    tags = {
-      Env = "pro"
-    }
-  }
+  # default_tags {
+  #   tags = {
+  #     Env = "pro"
+  #   }
+  # }
 }
 
 resource "random_pet" "sg" {}
