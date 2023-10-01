@@ -47,10 +47,11 @@ resource "aws_instance" "web" {
               apt-get update
               apt-get install -y apache2
               sed -i -e 's/80/8080/' /etc/apache2/ports.conf
-              echo "Hello new-pppp" > /var/www/html/index.html
+              echo "Hello Production" > /var/www/html/index.html
               systemctl restart apache2
               EOF
 }
+
 
 resource "aws_security_group" "web-sg" {
   name = "${random_pet.sg.id}-sg"
@@ -59,6 +60,9 @@ resource "aws_security_group" "web-sg" {
     to_port     = 8080
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+  tags = {
+    Name = "Production Env"
   }
   // connectivity to ubuntu mirrors is required to run `apt-get update` and `apt-get install apache2`
   egress {
