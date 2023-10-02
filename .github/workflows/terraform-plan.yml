@@ -5,7 +5,7 @@ on:
 
 env:
   # TF_CLOUD_ORGANIZATION: "linvest21-Terraform-Automation"
-  TF_CLOUD_ORGANIZATION: "${{ env.GITHUB_REF_NAME }}"
+  TF_CLOUD_ORGANIZATION: ${{ env.GITHUB_REF_NAME }}
   TF_API_TOKEN: "${{ secrets.TF_TOKEN }}"
   # TF_WORKSPACE: "terraform-pro"
   TF_WORKSPACE: "$GITHUB_REF_NAME"
