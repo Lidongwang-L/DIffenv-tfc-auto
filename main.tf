@@ -52,7 +52,7 @@ resource "aws_instance" "web" {
               apt-get update
               apt-get install -y apache2
               sed -i -e 's/80/8080/' /etc/apache2/ports.conf
-              echo "Hello 2024" > /var/www/html/index.html
+              echo "Hello 2023" > /var/www/html/index.html
               systemctl restart apache2
               EOF
 }
@@ -68,10 +68,9 @@ resource "aws_security_group" "web-sg" {
   }
   tags = {
     Name               = "Production Env"
-    Administrator      = "Andy Welsh"
+    Administrator      = "Tony"
     Department         = "IT"
-    CostCentre         = "ABC123"
-    ContactPerson      = "andy@tinfoilcipher.co.uk"
+    ContactPerson      = "123@gmail.com"
     ManagedByTerraform = "True"
   }
   // connectivity to ubuntu mirrors is required to run `apt-get update` and `apt-get install apache2`
