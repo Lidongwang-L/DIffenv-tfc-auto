@@ -3,7 +3,7 @@ name: "Terraform Apply"
 on:
   push:
     branches:
-      - ${{ GITHUB_HEAD_REF }}
+      - PRO
 
 env:
   TF_CLOUD_ORGANIZATION: "linvest21-Terraform-Automation"
