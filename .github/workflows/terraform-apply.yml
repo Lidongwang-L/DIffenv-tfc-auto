@@ -3,14 +3,14 @@ name: "Terraform Apply"
 on:
   push:
     branches:
-      - ${{ GITHUB_HEAD_REF }}
+      - PRO
 
 env:
-  # TF_CLOUD_ORGANIZATION: "linvest21-Terraform-Automation"
-  TF_CLOUD_ORGANIZATION: "LINVEST${{ GITHUB_HEAD_REF }}"
+  TF_CLOUD_ORGANIZATION: "linvest21-Terraform-Automation"
+  # TF_CLOUD_ORGANIZATION: "LINVEST${{ GITHUB_HEAD_REF }}"
   TF_API_TOKEN: "${{ secrets.TF_TOKEN }}"
-  # TF_WORKSPACE: "terraform-pro"
-  TF_WORKSPACE: "${{ GITHUB_HEAD_REF }}"
+  TF_WORKSPACE: "terraform-pro"
+  # TF_WORKSPACE: "${{ GITHUB_HEAD_REF }}"
   CONFIG_DIRECTORY: "./"
 
 jobs:
