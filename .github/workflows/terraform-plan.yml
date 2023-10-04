@@ -11,7 +11,7 @@ env:
 
 jobs:
   terraform:
-    if: $GITHUB_BASE_REF == "prod"
+    if: github.base_ref == "Lidongwang-L/DIffenv-tfc-auto/prod"
     # if: github.repository != 'hashicorp-education/learn-terraform-github-actions'
     # name: "Terraform Plan"
     runs-on: ubuntu-latest
