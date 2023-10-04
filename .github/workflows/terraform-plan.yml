@@ -22,9 +22,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Echo Branch name
+      # - name: Echo Branch name
+      #   run: |
+      #   echo "${{ github.base_ref }}"
+      - name: Read exported variable
         run: |
-        echo "${{ github.base_ref }}"
+          echo "OUTPUT: ${{ github.base_ref }}"
       - name: Upload Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
         id: plan-upload
