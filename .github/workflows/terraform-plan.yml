@@ -39,7 +39,7 @@ jobs:
           speculative: true
 
   terraform-prod:
-    if: ${{ github.base.ref }} == 'PRO'
+    if: ${{ github.base_ref }} == 'PRO'
     name: "Terraform Plan"
     runs-on: ubuntu-latest
     permissions:
