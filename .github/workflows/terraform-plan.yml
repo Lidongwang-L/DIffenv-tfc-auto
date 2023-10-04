@@ -13,9 +13,8 @@ jobs:
   terraform:
     # if: github.repository != 'hashicorp-education/learn-terraform-github-actions'
     name: "Terraform Plan"
-    if: ${{ github.base_ref }} == "prodddd"
+    if: ${{ github.base_ref }} == "prodddd" # no effect here!!!!!
     runs-on: ubuntu-latest
-
     permissions:
       contents: read
       pull-requests: write
@@ -24,7 +23,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Echo Branch name
-        if: ${{ github.base_ref }} == "prodd"
+      - if: ${{ github.base_ref }} == "prodd"
         run: |
           echo "$GITHUB_BASE_REF"
       - name: Read exported variable
