@@ -6,9 +6,9 @@ on:
 # if: $GITHUB_BASE_REF == "PRO"
 # if: ${{ github.base_ref == 'refs/heads/PRO' }}
 env:
-  PROD_TF_CLOUD_ORGANIZATION: "linvest21-Terraform-Automation"
+  PROD_TF_CLOUD_ORGANIZATION: "linvest21-Terraform-Automation-prod"
   PROD_TF_API_TOKEN: "${{ secrets.TF_TOKEN }}"
-  PROD_TF_WORKSPACE: "terraform-pro"
+  PROD_TF_WORKSPACE: "terraform-prod"
   PROD_CONFIG_DIRECTORY: "./"
 
   DEV_TF_CLOUD_ORGANIZATION: "linvest21-Terraform-Automation-dev"
@@ -36,7 +36,7 @@ jobs:
           speculative: true
 
   terraform-prod:
-    if: ${{ github.base_ref }} == 'PRO'
+    if: ${{ github.base_ref }} == 'prod'
     name: "Terraform Plan"
     runs-on: ubuntu-latest
     permissions:
@@ -52,13 +52,13 @@ jobs:
           workspace: ${{ env.PROD_TF_WORKSPACE }}
           directory: ${{ env.PROD_CONFIG_DIRECTORY }}
           speculative: true
-        - name: Create Plan Run
-          uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
-          id: plan-prod-run
-          with:
-            workspace: ${{ env.PROD_TF_WORKSPACE }}
-            configuration_version: ${{ steps.plan-upload.outputs.configuration_version_id }}
-            plan_only: true
+        # - name: Create Plan Run
+        #   uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
+        #   id: plan-prod-run
+        #   with:
+        #     workspace: ${{ env.PROD_TF_WORKSPACE }}
+        #     configuration_version: ${{ steps.plan-upload.outputs.configuration_version_id }}
+        #     plan_only: true
 
       # - name: Create Plan Run
       #   uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
