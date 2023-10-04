@@ -12,7 +12,7 @@ env:
 jobs:
   terraform:
     name: "Terraform Plan"
-    if: github.base_ref == 'prod'
+    if: $GITHUB_BASE_REF == 'prod'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -22,7 +22,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Echo Branch name
-        if: ${{ github.base_ref == 'prod' }}
         run: |
           echo "Branch name is $GITHUB_BASE_REF"
       - name: Read exported variable
