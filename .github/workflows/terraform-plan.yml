@@ -38,7 +38,7 @@ jobs:
           workspace: ${{ env.PROD_TF_WORKSPACE }}
           directory: ${{ env.PROD_CONFIG_DIRECTORY }}
           speculative: true
-        if: ${GITHUB_BASE_REF} == 'PRO'
+        if: ${{ github.base.ref }} == 'PRO'
 
       - name: Upload DEV Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
