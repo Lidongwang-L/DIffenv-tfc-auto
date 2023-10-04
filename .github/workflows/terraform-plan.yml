@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Echo Branch name
-        if: ${{ github.base_ref == "prod" }} # no effect here!!!!!
+        if: ${{ github.base_ref == 'prod' }} # no effect here!!!!!
         run: |
           echo "Branch name is $GITHUB_BASE_REF"
       - name: Read exported variable
