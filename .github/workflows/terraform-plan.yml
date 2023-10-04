@@ -11,7 +11,6 @@ env:
 
 jobs:
   terraform:
-    # if: github.repository != 'hashicorp-education/learn-terraform-github-actions'
     name: "Terraform Plan"
     if: ${{ github.base_ref }} == "prodddd" # no effect here!!!!!
     runs-on: ubuntu-latest
@@ -23,13 +22,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Echo Branch name
-        if: ${{ github.base_ref }}== "prodd"
+        if: ${{ github.base_ref }}== "prodd" # no effect here!!!!!
         run: |
           echo "Branch name is $GITHUB_BASE_REF"
-          echo "github.base_ref is name"
       - name: Read exported variable
         run: |
           echo "OUTPUT: ${{ github.base_ref }}"
+        if: $GITHUB_BASE_REF == "prodd"
       - name: Upload Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
         id: plan-upload
