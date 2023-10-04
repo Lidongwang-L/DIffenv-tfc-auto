@@ -11,7 +11,7 @@ env:
 
 jobs:
   terraform:
-    if: ${{ github.base_ref }}== dev
+    if: $GITHUB_BASE_REF == "pr"
     # if: github.repository != 'hashicorp-education/learn-terraform-github-actions'
     # name: "Terraform Plan"
     runs-on: ubuntu-latest
