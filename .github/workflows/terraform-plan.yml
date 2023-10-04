@@ -37,7 +37,7 @@ jobs:
       #   id: extract_branch
 
       - name: Get branch name
-        run: echo 'The branch name is' $GITHUB_HEAD_REF
+        run: echo 'The branch name is' $GITHUB_BASE_REF
 
       # - name: Upload Configuration
       #   uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
