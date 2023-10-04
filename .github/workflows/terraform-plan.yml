@@ -18,7 +18,7 @@ env:
 
 jobs:
   terraform-dev:
-    if: ${{ github.base_ref == 'dev'}}
+    if: ${{ github.base_ref }}== 'dev'
     name: "Terraform Plan"
     runs-on: ubuntu-latest
     permissions:
@@ -27,9 +27,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Read exported variable
-        run: |
-          echo "OUTPUT: ${{ github.base_ref }}"
       - name: Upload DEV Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
         id: plan-dev-upload
@@ -48,12 +45,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Read exported variable
-        run: |
-          echo "OUTPUT: ${{ github.base_ref }}"
-      - name: Get branch name
-        run: echo 'The branch name is' $GITHUB_BASE_REF
-
       - name: Upload PRO Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
         id: plan-prod-upload
@@ -61,6 +52,13 @@ jobs:
           workspace: ${{ env.PROD_TF_WORKSPACE }}
           directory: ${{ env.PROD_CONFIG_DIRECTORY }}
           speculative: true
+        - name: Create Plan Run
+          uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
+          id: plan-prod-run
+          with:
+            workspace: ${{ env.TF_WORKSPACE }}
+            configuration_version: ${{ steps.plan-pro-upload.outputs.configuration_version_id }}
+            plan_only: true
 
       # - name: Create Plan Run
       #   uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
