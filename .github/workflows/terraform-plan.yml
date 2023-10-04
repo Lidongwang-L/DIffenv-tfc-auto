@@ -18,7 +18,7 @@ env:
 
 jobs:
   terraform-dev:
-    if: ${{ github.base_ref }}== 'dev'
+    if: ${{ github.base_ref }}== dev
     name: "Terraform Plan"
     runs-on: ubuntu-latest
     permissions:
@@ -39,7 +39,7 @@ jobs:
           speculative: true
 
   terraform-prod:
-    if: ${{ github.base_ref }} == 'prod'
+    if: ${{ github.base_ref }} == prod
     name: "Terraform Plan"
     runs-on: ubuntu-latest
     permissions:
