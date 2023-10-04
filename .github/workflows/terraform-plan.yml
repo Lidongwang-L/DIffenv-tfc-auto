@@ -4,7 +4,7 @@ on:
   pull_request:
 
 env:
-  PROD_TF_CLOUD_ORGANIZATION: "linvest21-Terraform-Automation-prod"
+  TF_CLOUD_ORGANIZATION: "linvest21-Terraform-Automation-prod"
   TF_API_TOKEN: "${{ secrets.TF_TOKEN }}"
   TF_WORKSPACE: "terraform-prod"
   CONFIG_DIRECTORY: "./"
