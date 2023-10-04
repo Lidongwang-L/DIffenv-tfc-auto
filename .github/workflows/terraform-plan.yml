@@ -35,7 +35,7 @@ jobs:
         if: ${{ github.base.ref }} == 'dev'
 
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
-        id: plan-dev-upload
+        id: plan-upload
         with:
           workspace: ${{ env.DEV_TF_WORKSPACE }}
           directory: ${{ env.DEV_CONFIG_DIRECTORY }}
