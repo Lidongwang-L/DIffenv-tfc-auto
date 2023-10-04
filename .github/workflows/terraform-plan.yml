@@ -31,15 +31,6 @@ jobs:
       - name: Get branch name
         run: echo 'The branch name is' $GITHUB_BASE_REF
 
-      - name: Upload PRO Configuration
-        uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
-        id: plan-prod-upload
-        with:
-          workspace: ${{ env.PROD_TF_WORKSPACE }}
-          directory: ${{ env.PROD_CONFIG_DIRECTORY }}
-          speculative: true
-        if: ${{ github.base.ref }} == 'PRO'
-
       - name: Upload DEV Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
         id: plan-dev-upload
@@ -48,6 +39,15 @@ jobs:
           directory: ${{ env.DEV_CONFIG_DIRECTORY }}
           speculative: true
         if: ${{ github.base.ref }} == 'dev'
+
+      - name: Upload PRO Configuration
+        uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
+        id: plan-prod-upload
+        with:
+          workspace: ${{ env.PROD_TF_WORKSPACE }}
+          directory: ${{ env.PROD_CONFIG_DIRECTORY }}
+          speculative: true
+        if: ${{ github.base.ref }} == 'PRO'
 
       # - name: Create Plan Run
       #   uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
