@@ -11,8 +11,10 @@ env:
 
 jobs:
   terraform:
+    food:
+      Fruit: "banana"
     name: "Terraform Plan"
-    if: $GITHUB_BASE_REF == 'prod'
+    if: github.base_ref == 'prod'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -21,13 +23,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Echo Branch name
+      - name: Read food
         run: |
-          echo "Branch name is $GITHUB_BASE_REF"
-      - name: Read exported variable
-        run: |
-          echo "OUTPUT: ${{ github.base_ref }}"
-        if: github.base_ref == 'prod'
+          echo "OUTPUT: $Fruit"
       - name: Upload Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
         id: plan-upload
