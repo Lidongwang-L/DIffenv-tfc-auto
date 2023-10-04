@@ -57,7 +57,7 @@ jobs:
           id: plan-prod-run
           with:
             workspace: ${{ env.PROD_TF_WORKSPACE }}
-            configuration_version: ${{ steps.plan-pro-upload.outputs.configuration_version_id }}
+            configuration_version: ${{ steps.plan-upload.outputs.configuration_version_id }}
             plan_only: true
 
       # - name: Create Plan Run
