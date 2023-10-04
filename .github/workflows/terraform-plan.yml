@@ -11,8 +11,8 @@ env:
 
 jobs:
   terraform:
-    food:
-      Fruit: "banana"
+    env:
+      Fruit: banana
     name: "Terraform Plan"
     if: github.base_ref == 'prod'
     runs-on: ubuntu-latest
