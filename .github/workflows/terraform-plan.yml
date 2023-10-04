@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Echo Branch name
         run: |
-          echo: "${{ github.base_ref }}"
+          echo "${{ github.base_ref }}"
       - name: Upload DEV Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
         id: plan-dev-upload
@@ -48,7 +48,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Upload PRO Configuration
+      - name: Upload prod Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
         id: plan-prod-upload
         with:
