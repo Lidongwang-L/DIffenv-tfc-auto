@@ -18,7 +18,7 @@ env:
 
 jobs:
   terraform-dev:
-    if: ${{ github.base_ref }} == 'refs/heads/dev'
+    if: ${{ github.base_ref }} == 'dev'
     name: "Terraform Plan"
     runs-on: ubuntu-latest
     permissions:
