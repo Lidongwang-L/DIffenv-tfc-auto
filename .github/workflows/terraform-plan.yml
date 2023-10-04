@@ -30,14 +30,13 @@ jobs:
           echo "OUTPUT: ${{ github.base_ref }}"
         if: ${{ github.base_ref }}== "prodd" # no effect here!!!!!
       - name: Upload Configuration
-        if: ${{ github.base_ref }}== "prodd"
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
         id: plan-upload
         with:
           workspace: ${{ env.TF_WORKSPACE }}
           directory: ${{ env.CONFIG_DIRECTORY }}
           speculative: true
-
+        if: ${{ github.base_ref }}== "prodd"
       - name: Create Plan Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
         id: plan-run
