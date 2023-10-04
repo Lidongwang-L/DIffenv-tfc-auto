@@ -3,7 +3,7 @@ name: "Terraform Apply"
 on:
   push:
     branches:
-      - PRO
+      - prod
 
 env:
   TF_CLOUD_ORGANIZATION: "linvest21-Terraform-Automation-prod"
