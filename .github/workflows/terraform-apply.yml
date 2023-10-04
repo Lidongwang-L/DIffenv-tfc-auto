@@ -17,7 +17,7 @@ jobs:
       TF_CLOUD_ORGANIZATION: "linvest21-Terraform-Automation-prod"
       TF_API_TOKEN: "${{ secrets.TF_TOKEN }}"
     name: "Terraform Apply - pro"
-    if: github.base_ref == 'prod'
+    if: github.ref_name == 'prod'
     runs-on: ubuntu-latest
     permissions:
       contents: read
