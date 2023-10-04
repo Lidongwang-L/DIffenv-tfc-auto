@@ -33,7 +33,7 @@ jobs:
 
       - name: Upload PRO Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
-        id: plan-upload
+        id: plan-prod-upload
         with:
           workspace: ${{ env.PROD_TF_WORKSPACE }}
           directory: ${{ env.PROD_CONFIG_DIRECTORY }}
@@ -42,7 +42,7 @@ jobs:
 
       - name: Upload DEV Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
-        id: plan-upload
+        id: plan-dev-upload
         with:
           workspace: ${{ env.DEV_TF_WORKSPACE }}
           directory: ${{ env.DEV_CONFIG_DIRECTORY }}
