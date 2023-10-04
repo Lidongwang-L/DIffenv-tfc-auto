@@ -12,7 +12,7 @@ env:
   PROD_CONFIG_DIRECTORY: "./"
 
   DEV_TF_CLOUD_ORGANIZATION: "linvest21-Terraform-Automation-dev"
-  TF_API_TOKEN: "${{ secrets.TF_TOKEN }}"
+  dTF_API_TOKEN: "${{ secrets.TF_TOKEN }}"
   DEV_TF_WORKSPACE: "terraform-dev"
   DEV_CONFIG_DIRECTORY: "./"
 
