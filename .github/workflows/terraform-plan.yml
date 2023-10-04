@@ -12,7 +12,7 @@ env:
 jobs:
   terraform:
     name: "Terraform Plan"
-    if: ${{ github.base_ref == 'prod' }}
+    if: github.base_ref == 'prod'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -31,7 +31,6 @@ jobs:
         if: github.base_ref == 'prod'
       - name: Upload Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
-        if: ${{ github.base_ref }}== "prodd" # no effect here!!!!!
         id: plan-upload
         with:
           workspace: ${{ env.PROD_TF_WORKSPACE }}
