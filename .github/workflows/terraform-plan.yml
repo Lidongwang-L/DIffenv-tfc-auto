@@ -14,10 +14,11 @@ jobs:
     # if: github.repository != 'hashicorp-education/learn-terraform-github-actions'
     name: "Terraform Plan"
     runs-on: ubuntu-latest
+    if: ${{ github.base_ref }} == "prodd"
     permissions:
       contents: read
       pull-requests: write
-    if: ${{ github.base_ref }} == "prodd" # no effect here!
+    if: ${{ github.base_ref }} == "prodd" # no effect here!!!!!
     steps:
       - name: Checkout
         uses: actions/checkout@v3
