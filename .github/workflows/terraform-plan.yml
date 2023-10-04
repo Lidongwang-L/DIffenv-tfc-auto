@@ -45,8 +45,8 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-    # if: ${{ github.base_ref }} == prod
-    if: github.base_ref == 'refs/heads/prod'
+    if: ${{ github.base_ref }} == prod
+    # if: github.base_ref == 'refs/heads/prod'
     steps:
       - name: Echo Branch name
         run: |
