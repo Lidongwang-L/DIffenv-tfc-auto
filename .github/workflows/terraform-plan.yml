@@ -47,7 +47,7 @@ jobs:
           workspace: ${{ env.DEV_TF_WORKSPACE }}
           directory: ${{ env.DEV_CONFIG_DIRECTORY }}
           speculative: true
-        if: $GITHUB_BASE_REF == 'dev'
+        if: ${{ github.base.ref }} == 'dev'
 
       # - name: Create Plan Run
       #   uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
