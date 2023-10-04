@@ -22,10 +22,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Echo Branch name
+      # - name: Echo Branch name
       - if: ${{ github.base_ref }} == "prodd"
         run: |
-          echo "$GITHUB_BASE_REF"
+          echo " Branch name is $GITHUB_BASE_REF"
       - name: Read exported variable
         run: |
           echo "OUTPUT: ${{ github.base_ref }}"
