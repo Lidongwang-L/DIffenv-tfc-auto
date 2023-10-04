@@ -12,7 +12,7 @@ env:
 jobs:
   terraform:
     name: "Terraform Plan"
-    if: github.base_ref == "prodddd" # no effect here!!!!!
+    if: github.base_ref == "prod" # no effect here!!!!!
     runs-on: ubuntu-latest
     permissions:
       contents: read
