@@ -12,12 +12,13 @@ env:
 jobs:
   terraform:
     name: "Terraform Plan"
-    if: ${{ github.base_ref == 'prod' }} # no effect here!!!!!
+    # if: ${{ github.base_ref == 'prod' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: write
-    # if: ${{ github.base_ref }} == "prodd" # no effect here!!!!!
+    if: ${{ github.base_ref == 'prod' }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
