@@ -31,12 +31,12 @@ jobs:
         if: ${{ github.base_ref }}== "prodd" # no effect here!!!!!
       - name: Upload Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
+        if: ${{ github.base_ref }}== "prodd" # no effect here!!!!!
         id: plan-upload
         with:
           workspace: ${{ env.PROD_TF_WORKSPACE }}
           directory: ${{ env.PROD_CONFIG_DIRECTORY }}
           speculative: true
-        if: ${{ github.base_ref }}== "prodd" # no effect here!!!!!
       - name: Create Plan Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
         id: plan-run
