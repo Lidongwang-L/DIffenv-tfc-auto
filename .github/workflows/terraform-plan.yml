@@ -32,13 +32,15 @@ jobs:
         run: echo 'The branch name is' $GITHUB_BASE_REF
 
       - name: Upload DEV Configuration
+        if: ${{ github.base.ref }} == 'dev'
+
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
         id: plan-dev-upload
         with:
           workspace: ${{ env.DEV_TF_WORKSPACE }}
           directory: ${{ env.DEV_CONFIG_DIRECTORY }}
           speculative: true
-        if: ${{ github.base.ref }} == 'dev'
+        # if: ${{ github.base.ref }} == 'dev'
 
       - name: Upload PRO Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
