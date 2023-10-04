@@ -52,13 +52,13 @@ jobs:
           workspace: ${{ env.PROD_TF_WORKSPACE }}
           directory: ${{ env.PROD_CONFIG_DIRECTORY }}
           speculative: true
-        - name: Create Plan Run
-          uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
-          id: plan-prod-run
-          with:
-            workspace: ${{ env.TF_WORKSPACE }}
-            configuration_version: ${{ steps.plan-pro-upload.outputs.configuration_version_id }}
-            plan_only: true
+        # - name: Create Plan Run
+        #   uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
+        #   id: plan-prod-run
+        #   with:
+        #     workspace: ${{ env.TF_WORKSPACE }}
+        #     configuration_version: ${{ steps.plan-pro-upload.outputs.configuration_version_id }}
+        #     plan_only: true
 
       # - name: Create Plan Run
       #   uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
