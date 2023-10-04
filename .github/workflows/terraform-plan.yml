@@ -22,13 +22,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Echo Branch name
-        if: ${{ github.base_ref == 'prod' }} # no effect here!!!!!
+        if: ${{ github.base_ref == 'prod' }}
         run: |
           echo "Branch name is $GITHUB_BASE_REF"
       - name: Read exported variable
         run: |
           echo "OUTPUT: ${{ github.base_ref }}"
-        if: ${{ github.base_ref == 'prodd' }} # no effect here!!!!!
+        if: github.base_ref == 'prod'
       - name: Upload Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
         if: ${{ github.base_ref }}== "prodd" # no effect here!!!!!
