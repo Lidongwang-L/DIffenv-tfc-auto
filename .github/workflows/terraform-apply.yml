@@ -3,7 +3,7 @@ name: "Terraform Apply"
 on:
   push:
     branches:
-      - github.ref_name
+      - $GITHUB_REF_NAME
 
 env:
   PROD_TF_WORKSPACE: "terraform-prod"
