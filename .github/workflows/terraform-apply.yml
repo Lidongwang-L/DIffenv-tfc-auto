@@ -47,7 +47,7 @@ jobs:
           comment: "Apply Run from GitHub Actions CI ${{ github.sha }}"
   terraform-dev:
     env:
-      TF_CLOUD_ORGANIZATION: "linvest21-Terraform-Automation-prod-dev"
+      TF_CLOUD_ORGANIZATION: "linvest21-Terraform-Automation-dev"
       TF_API_TOKEN: "${{ secrets.TF_TOKEN }}"
     name: "Terraform Apply - dev"
     if: github.ref_name == 'dev'
